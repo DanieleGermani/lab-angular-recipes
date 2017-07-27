@@ -2,19 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import {RecipesService } from '../services/recipes.service'
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { DishesComponent } from './dishes/dishes.component';
+import { IngredientsService } from '../services/ingredients.service';
+import {routes} from './routes';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DishesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [RecipesService,IngredientsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
